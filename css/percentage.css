@@ -1,0 +1,332 @@
+@charset "utf-8";
+/* CSS Document */
+
+.p-31 .main {
+	width:100%;
+	float:left;
+}
+
+.p-31 .main .wrap {
+	padding:0 25%;
+}
+
+.p-31 .sub {
+	margin-left:-100%;
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+.p-31 .extra {
+	margin-left:-25%;
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+
+
+.p-32 .main {
+	width:100%;
+	float:left;
+}
+
+.p-32 .main .wrap {
+	padding:0 25%;
+}
+
+.p-32 .sub {
+	margin-left:-25%;
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+.p-32 .extra {
+	margin-left:-100%;
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+
+
+.p-33 .main {
+	margin-left:-25%;
+	width:100%;
+	float:right;
+}
+
+.p-33 .main .wrap {
+	margin-left:25%;
+	padding-left:25%;
+}
+
+.p-33 .sub {
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+.p-33 .extra {
+	margin-right:-25%;
+	width:25%;
+	height:200px;
+	float:right;
+}
+
+
+
+.p-34 .main {
+	margin-left:-25%;
+	width:100%;
+	float:right;
+}
+
+.p-34 .main .wrap {
+	margin-left:25%;
+	padding-left:25%;
+}
+
+.p-34 .sub {
+	margin-right:-25%;
+	width:25%;
+	height:200px;
+	float:right;
+}
+
+.p-34 .extra {
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+
+
+.p-35 .main {
+	margin-right:-25%;
+	width:100%;
+	float:left;
+}
+
+.p-35 .main .wrap {
+	margin-right:25%;
+	padding-right:25%;
+}
+
+.p-35 .sub {
+	margin-left:-25%;
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+.p-35 .extra {
+	width:25%;
+	height:200px;
+	float:right;
+}
+
+
+
+.p-36 .main {
+	margin-right:-25%;
+	width:100%;
+	float:left;
+}
+
+.p-36 .main .wrap {
+	margin-right:25%;
+	padding-right:25%;
+}
+
+.p-36 .sub {
+	width:25%;
+	height:200px;
+	float:right;
+}
+
+.p-36 .extra {
+	margin-left:-25%;
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+
+
+.p-21 .main {
+	margin-left:-25%;
+	width:100%;
+	float:right;
+}
+
+.p-21 .main .wrap {
+	margin-left:25%;
+}
+
+.p-21 .sub {
+	width:25%;
+	height:200px;
+	float:left;
+}
+
+
+
+.p-22 .main {
+	margin-right:-25%;
+	width:100%;
+	float:left;
+}
+
+.p-22 .main .wrap {
+	margin-right:25%;
+}
+
+.p-22 .sub {
+	width:25%;
+	height:200px;
+	float:right;
+}
+
+
+
+.p-11 .main {
+	margin-left:-25%;
+	width:100%;
+	float:right;
+}
+
+.p-11 .main .wrap {
+	margin-left:25%;
+}
+
+.p-11 .sub {
+	width:25%;
+	height:100px;
+	float:left;
+}
+
+.p-11 .extra {
+	width:25%;
+	height:100px;
+	float:left;
+	clear:left;
+}
+
+
+
+.p-12 .main {
+	margin-right:-25%;
+	width:100%;
+	float:left;
+}
+
+.p-12 .main .wrap {
+	margin-right:25%;
+}
+
+.p-12 .sub {
+	width:25%;
+	height:100px;
+	float:right;
+}
+
+.p-12 .extra {
+	width:25%;
+	height:100px;
+	float:right;
+	clear:right;
+}
+
+
+
+.p-13 .main {
+	margin-left:-25%;
+	width:100%;
+	float:right;
+}
+
+.p-13 .main .wrap {
+	margin-left:25%;
+}
+
+.p-13 .sub {
+	width:25%;
+	height:100px;
+	float:left;
+}
+
+.p-13 .extra {
+	height:100px;
+	clear:both;
+}
+
+
+
+.p-14 .main {
+	margin-right:-25%;
+	width:100%;
+	float:left;
+}
+
+.p-14 .main .wrap {
+	margin-right:25%;
+}
+
+.p-14 .sub {
+	width:25%;
+	height:100px;
+	float:right;
+}
+
+.p-14 .extra {
+	height:100px;
+	clear:both;
+}
+
+
+.p-15 .main .wrap {
+	height:100px;
+}
+
+.p-15 .sub {
+	width:40%;
+	height:100px;
+	float:left;
+}
+
+.p-15 .extra {
+	width:60%;
+	height:100px;
+	float:right;
+}
+
+
+.p-16 .main .wrap {
+	height:100px;
+}
+
+.p-16 .sub {
+	width:40%;
+	height:100px;
+	float:right;
+}
+
+.p-16 .extra {
+	width:60%;
+	height:100px;
+	float:left;
+}
+
+
+
+
+
+
+
+
+
+
+
+

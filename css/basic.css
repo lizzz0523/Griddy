@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	font-family:"Microsoft YaHei";
+	font-size:15px;
+}
+
+.canvas {
+	height:100%;
+	width:100%;
+}
+
+.row {
+	margin-bottom:20px;
+	+zoom:1;
+	width:100%;
+	background-color:#eee;
+}
+
+.row:after {
+	content:'';
+	display:block;
+	height:0;
+	line-height:0;
+	overflow:hidden;
+	clear:both;
+	font-size:0;
+	visibility:hidden;
+}
+
+.row h2 {
+	padding:0 10px;
+	height:30px;
+	line-height:30px;
+	color:white;
+	background-color:#333;
+}
+
+.row span {
+	display:block;
+	padding:10px;
+}
+
+.sub {
+	background-color:#b9caff;
+}
+
+.extra {
+	background-color:#ff8539;
+}
+
+.select-form div {
+	overflow:hidden;
+}
+
+.select-form {
+	padding:10px 0;
+	width:100%;
+	color:white;
+	background-color:#666;
+}
+
+.select-form label {
+	display:block;
+	padding:0 10px;
+	height:24px;
+	line-height:24px;
+	font-size:13px;
+	float:left;
+}
+
+.select-form select {
+	display:block;
+	margin:0;
+	padding:2px 2px 2px 4px;
+	border:1px solid #a8a8a8;
+	outline:none;
+	width:120px;
+	height:24px;
+	line-height:24px;
+	float:left;
+	font-size:12px;
+}
+
+.select-form input {
+	margin:0 0 0 10px;
+	padding:2px 4px;
+	outline:none;
+	width:50px;
+	height:24px;
+	float:left;
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>分栏布局</title>
+<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css" />
+<style>
+*{
+	margin:0;
+	padding:0;
+	font-family:"Microsoft YaHei";
+}
+
+body {
+	border-top:3px solid #333;
+	padding-top:8px;
+}
+
+label {
+	padding-left:10px;
+}
+
+label span {
+	padding:0 10px;
+	color:#c00;
+	font-weight:bold;
+}
+
+.sep {
+	margin-top:8px;
+	border-top:1px dashed #999;
+	height:8px;
+}
+
+.news-list {
+	display:none;
+	margin:0 10px;
+	padding:10px;
+	min-width:250px;
+	background-color:#daebff;
+	list-style:none;
+	font-size:15px;
+}
+
+.news-list h3 {
+	position:relative;
+	padding-left:14px;
+	color:#c00;
+	font-size:16px;
+}
+
+.news-list h3:after {
+	content:'';
+	position:absolute;
+	left:0;
+	top:50%;
+	display:block;
+	margin-top:-6px;
+	border:6px solid transparent;
+	border-left-color:#c00;
+	width:0;
+	height:0;
+	line-height:0;
+	font-size:0;
+}
+
+.news-list li {
+	padding:4px 0;
+	border-bottom:1px dashed #999;
+	overflow:hidden;
+	+zoom:1;
+}
+
+.news-list li span,
+.news-list li a {
+	display:block;
+	height:20px;
+	float:left;
+	color:#333;
+}
+
+.news-list li span {
+	margin-right:-100px;
+	width:100%;
+}
+
+.news-list li a {
+	width:100px;
+	text-align:right;
+	color:#c00;
+	text-decoration:none;
+}
+
+.news-list li a:hover {
+	text-decoration:underline;
+}
+
+.row {
+	border-top:3px solid #333;
+	+zoom:1;
+}
+
+.row:after {
+	content:'';
+	display:block;
+	height:0;
+	line-height:0;
+	overflow:hidden;
+	clear:both;
+	font-size:0;
+	visibility:hidden;
+}
+
+.row p {
+	display:block;
+	padding:10px;
+	font-size:34px;
+	font-weight:bold;
+}
+
+.main, .sub, .extra {
+	height:200px;
+	color:#666;
+}
+
+.main .wrap {
+	height:200px;
+	background:#ffec82;
+}
+
+.row {
+	background:#eee;
+}
+
+.sub {
+	background:#b9caff;
+}
+
+.extra {
+	background:#ff8539;
+}
+
+.active {
+	opacity:0.5;
+}
+
+#float-1:checked~.row .main,
+#float-1:checked~.row .sub,
+#float-1:checked~.row .extra {
+	float:left;
+}
+
+#width-1:checked~.row .main {
+	width:400px;
+}
+
+#width-1:checked~.row .sub,
+#width-1:checked~.row .extra {
+	width:300px;
+}
+
+#width-2:checked~.row .main {
+	width:100%;
+}
+
+#margin-1:checked~.row .sub {
+	margin-left:-100%;
+}
+
+#margin-2:checked~.row .extra {
+	margin-left:-300px;
+}
+
+#padding-1:checked~.row .main .wrap {
+	margin:0 400px;
+}
+
+#padding-2:checked~.row .main .wrap {
+	margin:0 300px;
+}
+
+#display-1:checked~.row .news-list {
+	display:block;
+}
+
+</style>
+</head>
+<body>
+<label for="select-all">全选&nbsp;</label>
+<input id="select-all" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="float-1">设置三栏浮动<span>（float:left）</span>&nbsp;</label>
+<input id="float-1" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="width-1">设置三栏宽度分别为400px / 300px / 300px&nbsp;</label>
+<input id="width-1" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="width-2">设置中间栏宽度为100%<span>(width:100%)</span>&nbsp;</label>
+<input id="width-2" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="margin-1">设置左边栏外边距为-100%<span>(margin-left:-100%)</span>&nbsp;</label>
+<input id="margin-1" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="margin-2">设置右边栏外边距为-200px<span>(margin-left:-300px)</span>&nbsp;</label>
+<input id="margin-2" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="padding-1">设置中间栏内辅助层（wrap）内边距为400px<span>(padding:0 400px)</span>&nbsp;</label>
+<input id="padding-1" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="padding-2">设置中间栏内辅助层（wrap）内边距为300px<span>(padding:0 300px)</span>&nbsp;</label>
+<input id="padding-2" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<label for="display-1">添加新闻列表&nbsp;</label>
+<input id="display-1" type="checkbox" />
+<p class="sep">&nbsp;</p>
+<div class="row">
+	<div class="main">
+		<div class="wrap droppable">
+			<p>中间栏</p>
+			<div class="news-list draggable" title="拖拽新闻列表可以放置到不同的分栏哦！亲">
+				<h3>新闻列表</h3>
+				<ul>
+					<li><span>今天我们学习CSS分栏技术</span><a href="#">更多</a></li>
+					<li><span>小明很啰嗦，讲了两个小时</span><a href="#">更多</a></li>
+					<li><span>我们还用其他工作呢！！！！！！</span><a href="#">更多</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="sub droppable"><p>左边栏</p></div>
+	<div class="extra droppable"><p>右边栏</p></div>
+</div>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript">
+	$('.draggable').draggable({
+		revert:'invalid', // when not dropped, the item will revert back to its initial position
+		containment:'document',
+		helper:'clone',
+		cursor:'move',
+		cursorAt:{top:10, left:135}
+	});
+	
+	$('.droppable').droppable({
+      accept:'.news-list',
+      hoverClass:'active',
+      drop:function(event, ui){
+        $(this).append(ui.draggable);
+      }
+    })
+    
+    $('#select-all').change(function(){
+    	var checked = $(this).attr('checked');
+    	$('input[type=checkbox]').attr('checked', !!checked);
+    })
+</script>
+</body>
+</html>

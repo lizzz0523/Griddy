@@ -1,0 +1,326 @@
+@charset "utf-8";
+/* CSS Document */
+
+.f {
+	margin-left:auto;
+	margin-right:auto;
+	width:700px;
+}
+
+.f-31 .main {
+	width:100%;
+	float:left;
+}
+
+.f-31 .main .wrap {
+	padding:0 150px;
+}
+
+.f-31 .sub {
+	margin-left:-700px;
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+.f-31 .extra {
+	margin-left:-150px;
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+
+
+.f-32 .main {
+	width:100%;
+	float:left;
+}
+
+.f-32 .main .wrap {
+	padding:0 150px;
+}
+
+.f-32 .sub {
+	margin-left:-150px;
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+.f-32 .extra {
+	margin-left:-700px;
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+
+
+.f-33 .main {
+	margin-left:-150px;
+	width:100%;
+	float:right;
+}
+
+.f-33 .main .wrap {
+	margin-left:150px;
+	padding-left:150px;
+}
+
+.f-33 .sub {
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+.f-33 .extra {
+	margin-right:-150px;
+	width:150px;
+	height:200px;
+	float:right;
+}
+
+
+
+.f-34 .main {
+	margin-left:-150px;
+	width:100%;
+	float:right;
+}
+
+.f-34 .main .wrap {
+	margin-left:150px;
+	padding-left:150px;
+}
+
+.f-34 .sub {
+	margin-right:-150px;
+	width:150px;
+	height:200px;
+	float:right;
+}
+
+.f-34 .extra {
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+
+
+.f-35 .main {
+	margin-right:-150px;
+	width:100%;
+	float:left;
+}
+
+.f-35 .main .wrap {
+	margin-right:150px;
+	padding-right:150px;
+}
+
+.f-35 .sub {
+	margin-left:-150px;
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+.f-35 .extra {
+	width:150px;
+	height:200px;
+	float:right;
+}
+
+
+
+.f-36 .main {
+	margin-right:-150px;
+	width:100%;
+	float:left;
+}
+
+.f-36 .main .wrap {
+	margin-right:150px;
+	padding-right:150px;
+}
+
+.f-36 .sub {
+	width:150px;
+	height:200px;
+	float:right;
+}
+
+.f-36 .extra {
+	margin-left:-150px;
+	width:150px;
+	height:200px;
+	float:left;
+}
+
+
+
+.f-21 .main {
+	margin-left:-200px;
+	width:100%;
+	float:right;
+}
+
+.f-21 .main .wrap {
+	margin-left:200px;
+}
+
+.f-21 .sub {
+	width:200px;
+	height:200px;
+	float:left;
+}
+
+
+
+.f-22 .main {
+	margin-right:-200px;
+	width:100%;
+	float:left;
+}
+
+.f-22 .main .wrap {
+	margin-right:200px;
+}
+
+.f-22 .sub {
+	width:200px;
+	height:200px;
+	float:right;
+}
+
+
+
+.f-11 .main {
+	margin-left:-200px;
+	width:100%;
+	float:right;
+}
+
+.f-11 .main .wrap {
+	margin-left:200px;
+}
+
+.f-11 .sub {
+	width:200px;
+	height:100px;
+	float:left;
+}
+
+.f-11 .extra {
+	width:200px;
+	height:100px;
+	float:left;
+	clear:left;
+}
+
+
+
+.f-12 .main {
+	margin-right:-200px;
+	width:100%;
+	float:left;
+}
+
+.f-12 .main .wrap {
+	margin-right:200px;
+}
+
+.f-12 .sub {
+	width:200px;
+	height:100px;
+	float:right;
+}
+
+.f-12 .extra {
+	width:200px;
+	height:100px;
+	float:right;
+	clear:right;
+}
+
+
+
+.f-13 .main {
+	margin-left:-200px;
+	width:100%;
+	float:right;
+}
+
+.f-13 .main .wrap {
+	margin-left:200px;
+}
+
+.f-13 .sub {
+	width:200px;
+	height:100px;
+	float:left;
+}
+
+.f-13 .extra {
+	height:100px;
+	clear:both;
+}
+
+
+
+.f-14 .main {
+	margin-right:-200px;
+	width:100%;
+	float:left;
+}
+
+.f-14 .main .wrap {
+	margin-right:200px;
+}
+
+.f-14 .sub {
+	width:200px;
+	height:100px;
+	float:right;
+}
+
+.f-14 .extra {
+	height:100px;
+	clear:both;
+}
+
+
+.f-15 .main .wrap {
+	height:100px;
+}
+
+.f-15 .sub {
+	width:300px;
+	height:100px;
+	float:left;
+}
+
+.f-15 .extra {
+	width:400px;
+	height:100px;
+	float:right;
+}
+
+
+.f-16 .main .wrap {
+	height:100px;
+}
+
+.f-16 .sub {
+	width:300px;
+	height:100px;
+	float:right;
+}
+
+.f-16 .extra {
+	width:400px;
+	height:100px;
+	float:left;
+}

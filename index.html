@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>css局部技法</title>
+<link type="text/css" rel="stylesheet" href="css/screen.css" />
+</head>
+<body>
+<form class="select-form" id="select-form">
+	<div>
+		<label for="layout">类型</label>
+		<select id="layout">
+			<option value="0">全部</option>
+			<option value="1">百分比</option>
+			<option value="2">流式</option>
+			<option value="3">固定</option>
+			<option value="4">混合</option>
+		</select>
+		<label for="column">栏数</label>
+		<select id="column">
+			<option value="0">全部</option>
+			<option value="3">三栏</option>
+			<option value="2">两栏</option>
+			<option value="1">非分栏</option>
+		</select>
+		<input type="submit" value="筛选" />
+	</div>
+</form>
+<div id="canvas" class="canvas">
+</div>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript">
+
+	var $canvas = $('#canvas'),
+		$layout = $('#layout'),
+		$column = $('#column'),
+		$selectForm = $('#select-form');
+		
+		types = {},
+	
+		types['P3'] = [
+			'p-31,百分比三栏布局(1)',
+			'p-32,百分比三栏布局(2)',
+			'p-33,百分比三栏布局(3)',
+			'p-34,百分比三栏布局(4)',
+			'p-35,百分比三栏布局(5)',
+			'p-36,百分比三栏布局(6)'
+		].join(',').split(','),
+		
+		types['L3'] = [
+			'l-31,流式三栏布局(1)',
+			'l-32,流式三栏布局(2)',
+			'l-33,流式三栏布局(3)',
+			'l-34,流式三栏布局(4)',
+			'l-35,流式三栏布局(5)',
+			'l-36,流式三栏布局(6)'
+		].join(',').split(','),
+		
+		types['F3'] = [
+			'f f-31,固定三栏布局(1)',
+			'f f-32,固定三栏布局(2)',
+			'f f-33,固定三栏布局(3)',
+			'f f-34,固定三栏布局(4)',
+			'f f-35,固定三栏布局(5)',
+			'f f-36,固定三栏布局(6)'
+		].join(',').split(','),
+		
+		types['H3'] = [
+			'h-31,混合三栏布局(1)',
+			'h-32,混合三栏布局(2)',
+			'h-33,混合三栏布局(3)',
+			'h-34,混合三栏布局(4)',
+			'h-35,混合三栏布局(5)',
+			'h-36,混合三栏布局(6)'
+		].join(',').split(','),
+		
+		types['P2'] = [
+			'p-21,百分比两栏布局(1)',
+			'p-22,百分比两栏布局(2)'
+		].join(',').split(','),
+		
+		types['L2'] = [
+			'l-21,流式两栏布局(1)',
+			'l-22,流式两栏布局(2)'
+		].join(',').split(','),
+
+		types['F2'] = [
+			'f f-21,固定两栏布局(1)',
+			'f f-22,固定两栏布局(2)'
+		].join(',').split(','),
+		
+		types['P1'] = [
+			'p-11,百分比非分栏布局(1)',
+			'p-12,百分比非分栏布局(2)',
+			'p-13,百分比非分栏布局(3)',
+			'p-14,百分比非分栏布局(4)',
+			'p-15,百分比非分栏布局(5)',
+			'p-16,百分比非分栏布局(6)'
+		].join(',').split(','),
+		
+		types['L1'] = [
+			'l-11,流式非分栏布局(1)',
+			'l-12,流式非分栏布局(2)',
+			'l-13,流式非分栏布局(3)',
+			'l-14,流式非分栏布局(4)'
+		].join(',').split(','),
+
+		types['F1'] = [
+			'f f-11,固定非分栏布局(1)',
+			'f f-12,固定非分栏布局(2)',
+			'f f-13,固定非分栏布局(3)',
+			'f f-14,固定非分栏布局(4)',
+			'f f-15,固定非分栏布局(5)',
+			'f f-16,固定非分栏布局(6)'
+		].join(',').split(','),
+		
+		typeMap = {
+			'00' : 'P1,P2,P3,L1,L2,L3,F1,F2,F3,H3',
+			'01' : 'P1,L1,F1',
+			'02' : 'P2,L2,F2',
+			'03' : 'P3,L3,F3,H3',
+			'10' : 'P1,P2,P3',
+			'11' : 'P1',
+			'12' : 'P2',
+			'13' : 'P3',
+			'20' : 'L1,L2,L3',
+			'21' : 'L1',
+			'22' : 'L2',
+			'23' : 'L3',
+			'30' : 'F1,F2,F3',
+			'31' : 'F1',
+			'32' : 'F2',
+			'33' : 'F3',
+			'40' : 'H3',
+			'43' : 'H3'
+		};
+		
+	var curHash = window.location.hash;
+	if(curHash.indexOf('#') != -1){
+		curHash = curHash.split('#')[1];
+		
+		var layoutIndex, columnIndex;
+		if(/layoutIndex=([^\|])/.exec(curHash)){
+			layoutIndex = RegExp.$1;
+		}
+		if(/columnIndex=([^\|])/.exec(curHash)){
+			columnIndex = RegExp.$1;
+		}
+		
+		$layout.val(layoutIndex);
+		$column.val(columnIndex);
+	}
+		
+	$selectForm.on('submit', output).trigger('submit');
+		
+	function output(event){
+	
+		var html = '';
+	
+		var layoutIndex = $layout.val();
+		var columnIndex = $column.val();
+		
+		var map = typeMap[layoutIndex + columnIndex]
+		if(!map){
+			alert('木有这种分栏布局哦亲！');
+			return false;
+		}
+		map = map.split(',');
+		
+		var type = [];
+		var i, j;
+		i = 0;
+		j = map.length;
+		for(; i < j; i++){
+			type = type.concat(types[map[i]]);
+		}
+		
+		i = 0;
+		j = type.length;
+		for(; i < j; i += 2){
+			html += [
+			'<div class="row ' + type[i] + '">',
+				'<h2>' + type[i + 1] + '</h2>',
+				'<div class="main">',
+					'<div class="wrap"><span>正文</span></div>',
+				'</div>',
+				'<div class="sub"><span>侧栏</span></div>',
+				
+				type[i].indexOf('-2') != -1 ? '' : '<div class="extra"><span>附加</span></div>',
+				
+			'</div>'
+			].join('');
+		}
+		
+		$canvas.html(html);
+		
+		window.location.hash = '#' + 'layoutIndex=' + layoutIndex + '|' + 'columnIndex=' + columnIndex;
+		
+		return false;
+	}
+	
+	var offsetTop = $selectForm.outerHeight();
+	var isFixed = false;
+	$(window).scroll(function(){
+		var top = $(this).scrollTop();
+		if(top > offsetTop && !isFixed){
+			$selectForm.css({
+				position:'fixed',
+				top:-offsetTop
+			})
+			
+			setTimeout(function(){
+				$selectForm.animate({top:0},'fast');
+			}, 300);
+			
+			isFixed = true;
+		}
+		
+		if(top == 0 && isFixed){
+			$selectForm.removeAttr('style');
+			
+			isFixed = false;
+		}
+	});
+</script>
+</body>
+</html>
