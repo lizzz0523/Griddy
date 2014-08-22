@@ -43,22 +43,22 @@ __Griddy__中包含的分栏布局主要有三类
 }
 
 .main {
-    width: {z};
+    width: z;
 }
 
 .main .wrap {
-    padding-left: {x};
-    padding-right : {y};
+    padding-left: x;
+    padding-right : y;
 }
 
 .sub {
     margin-left: -100%;
-    width: {x};
+    width: x;
 }
 
 .extra {
-    margin-left: -{y};
-    width: {y};
+    margin-left: -y;
+    width: y;
 }
 ```
 
@@ -67,4 +67,4 @@ __Griddy__中包含的分栏布局主要有三类
 * 百分比布局：100%, 30%, 40%
 * 流式布局：100%, 200px, 300px
 * 固定宽度布局：990px, 200px, 300px
-* 混合类型布局：
+* 混合类型布局：...
